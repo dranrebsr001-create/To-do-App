@@ -1,0 +1,398 @@
+.mission-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(10, 5, 25, 0.85);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeInGlow 0.6s ease-out;
+}
+
+.mission-popup-content {
+    background: linear-gradient(135deg, #6a0dad, #9b59b6);
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding: 36px 50px;
+    border-radius: 16px;
+    box-shadow: 
+        0 0 20px rgba(155, 89, 182, 0.6), 
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    font-family: 'Orbitron', 'Helvetica', sans-serif;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.mission-popup-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine 2s infinite;
+}
+
+.mission-popup-content span {
+    margin-bottom: 20px;
+    display: block;
+}
+
+.mission-popup button {
+    background: #1a0a2e;
+    color: #e0b0ff;
+    border: 1px solid #9b59b6;
+    font-size: 1.1rem;
+    padding: 16px 28px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: 'Orbitron', sans-serif;
+    width: 100%;
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+.mission-popup button:hover {
+    background: #2a0f4a;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    transform: translateY(-2px);
+}
+
+.mission-popup span {
+    background: linear-gradient(135deg, #6a0dad, #9b59b6);
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 800;
+    padding: 36px 50px;
+    border-radius: 16px 16px 0 0;
+    box-shadow:
+        0 0 20px rgba(155, 89, 182, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    display: block;
+    text-align: center;
+    letter-spacing: 1px;
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+    font-family: 'Orbiton', 'Helvetica Neue', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+.mission-popup span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    animation: shine 2s infinite;
+}
+
+.mision-popup button {
+    background: #1a0a2e;
+    color: #e0b0ff;
+    border: 1px solid #9b59b6;
+    font-size: 1.1rem;
+    padding: 16px 28px;
+    border-radius: 0 0 16px 16px;
+    cursor: pointer;
+    width: 100%;
+    margin-top: -4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    font-family: 'Orbitron', sans-serif;
+}
+
+.mission-popup button:hover {
+    background: #2a0f4a;
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.8);
+    transform: translateY(-2px);
+}
+
+.completed .task-text {
+    text-decoration: line-through;
+    color: #666;
+    text-shadow: 0 0 px rgba(155, 89, 182, 0.3);
+    opacity: 0.7;
+    transition: opacity 0.3s;
+}
+
+.task-check {
+    margin-right: 12px;
+    width: 20px;
+    height: 20px;
+    accent-color: #9b59b6;
+    filter: drop-shadow(0 0 4px rgba(155, 89, 182, 0.5));
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+}
+
+.task-check:checked {
+    transform: scale(1.2);
+}
+
+body {
+    font-family: 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+    max-width: 560px;
+    margin: 0 auto;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    color: #e0e0ff;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 70%, rgba(155, 89, 182, 0.1), transparent 60%),
+                radial-gradient(circle at 80% 20%, rgba(106, 13, 173, 0.1), transparent 60%);
+    pointer-events: none;
+    z-index: -1;            
+}
+
+h1 {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 40px;
+    color: #e0b0ff;
+    font-size: 2.8rem;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+    font-family: 'Orbitron', sans-serif;
+    position: relative;
+}
+
+h1::after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #9b59b6, transparent);
+    margin: 12px auto 0;
+}
+
+.input-container {
+    display: flex;
+    margin-bottom: 30px;
+    background:rgba(26, 18,46, 0.6);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+#task-input {
+    flex-grow: 1;
+    padding: 16px 20px;
+    border: none;
+    background: rgba(30, 20, 55, 0.7);
+    color: #ffffff;
+    font-size: 16px;
+    outline: none;
+    box-shadow: inset 0 1px 0 rgba(155, 89, 182, 0.3);
+    transition: all 0.3s ease;
+}
+
+#task-input:focus {
+    box-shadow: inset 0 0 0 2px #9b59b6, 0 0 10px rgba(155, 89, 182, 0.5);
+}
+
+#add-button {
+    padding: 16px 24px;
+    background: linear-gradient(135deg, #6a0dad, #9b59b6);
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+#add-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    animation: buttonShine 1.5s infinite;
+}
+
+#add-button:hover {
+    background: linear-gradient(135deg, #8e44ad, #a569bd);
+    box-shadow: 0 0 20px rgba(155, 89, 182, 0.6);
+    transform: translateY(-2px);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: rgba(30, 20, 55, 0.5);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow:
+        0 4px 12px rgba(0,0,0,0.2),
+        0 0 0 10x rgba(155, 89, 182, 0.2);
+        transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        border-left: 4px solid transparent;
+}
+
+.task-item:hover {
+    transform: translateX(4px);
+    box-shadow:
+        0 6px 20px rgba(0,0,0,0.3),
+        0 0 0 1px rgba(155, 89, 182, 0.5);
+    border-left: 4px solid #9b59b6;
+}
+
+.task-text {
+    flex-grow: 1;
+    margin: 0;
+    word-break: break-word;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    color: #e0e0ff;
+    transition: color 0.3s;
+}
+
+.editing .task-text {
+    display: none;
+}
+
+.editing input {
+    flex-grow: 1;
+    padding: 12px;
+    border: 1px solid rgba(155, 89, 182, 0.5);
+    background: rgba(20, 10, 40, 0.7);
+    border-radius: 8px;
+    margin-right: 12px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: 0 0 8px rgba(155, 89, 182, 0.3);
+}
+
+.task-actions {
+    display: flex;
+    gap: 10px;
+    margin-left: 12px;
+}
+
+.edit-btn, .delete-btn, .save-btn, .cancel-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    padding: 8px 14px;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.edit-btn {
+    color: #a377ff;
+    border: 1px solid rgba(155, 89, 182, 0.3);
+}
+
+.edit-btn:hover {
+    background: rgba(163, 119, 255, 0.15);
+    box-shadow: 0 0 12px rgba(163, 119, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    color: #ff5e94;
+    border: 1px solid rgba(255, 94, 148, 0.3);
+}
+
+.delete-btn:hover {
+    background: rgba(255, 94, 148, 0.15);
+    box-shadow: 0 0 12px rgba(255, 94, 148, 0.4);
+    transform: scale(1.05);
+}
+
+.save-btn {
+    color: #77e0a3;
+    border: 1px solid rgba(119, 224, 163, 0.3);
+}
+
+.save-btn:hover {
+    background: rgba(119, 224, 163, 0.15);
+    box-shadow: 0 0 12px rgba(119, 224, 163, 0.4);
+    transform: scale(1.05);
+}
+
+.cancel-btn{
+    color: #aaaaff;
+    border: 1px solid rgba(170, 170, 255, 0.3);
+}
+
+.cancel-btn:hover {
+    background: rgba(170, 170, 255, 0.1);
+    box-shadow: 0 0 12px rgba(170, 170, 255, 0.3);
+    transform: scale(1.05);
+}
+
+@keyframes fadeInGlow {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shine {
+    0% {left: -100%; }
+    20% {left: 100%; }
+    100% {left: 100%; }
+}
+
+@keyframes buttonShine {
+    0% {left: -100% }
+    20% {left: 100% }
+    100% {left: 100% }
+}
